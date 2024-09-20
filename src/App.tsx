@@ -3,7 +3,7 @@ import './App.css'
 import Blog from './pages/blog/Blog'
 
 function App() {
-  return <Blog></Blog>
+  return <Blog />
 }
 
 export default App

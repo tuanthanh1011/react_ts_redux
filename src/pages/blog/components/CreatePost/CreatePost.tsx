@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { IPost } from '../../../../types/blog.type'
-import { useDispatch } from 'react-redux'
-import { addPost } from '../../blog.reducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../../../../store'
 
 const initialState: IPost = {
   id: '',
@@ -14,11 +14,11 @@ const initialState: IPost = {
 
 export default function CreatePost() {
   const [formData, setFormData] = useState<IPost>(initialState)
+
   const dispatch = useDispatch()
 
   const handleCreate = () => {
-    const formDataWithId = { ...formData, id: new Date().toISOString() }
-    dispatch(addPost(formDataWithId))
+    dispatch({ type: 'blog/addPost', payload: formData })
     setFormData(initialState)
   }
 

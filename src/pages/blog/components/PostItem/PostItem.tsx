@@ -12,6 +12,7 @@ export default function PostItem({ post }: IPropPost) {
   const handleClickDelete = (id: string) => {
     dispatch(deletePost(id))
   }
+
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
       <div className='bg-white rounded-lg shadow-md overflow-hidden'>
@@ -28,7 +29,6 @@ export default function PostItem({ post }: IPropPost) {
             <h2 className='font-bold text-lg mb-2'>{post.title}</h2>
             <p className='text-gray-700 mb-4'>{post.description}</p>
             <div className='flex space-x-2'>
-              <button className='bg-blue-500 text-white px-3 py-1 rounded'>Edit</button>
               <button onClick={() => handleClickDelete(post.id)} className='bg-red-500 text-white px-3 py-1 rounded'>
                 Delete
               </button>
